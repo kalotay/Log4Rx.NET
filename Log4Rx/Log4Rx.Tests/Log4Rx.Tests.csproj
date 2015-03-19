@@ -68,6 +68,13 @@
     <Compile Include="ObservableAppenderSubscriptionTests.cs" />
     <Compile Include="HotObservableAppenderSubscriptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RxInterceptionTests.cs" />
+    <Compile Include="RxInterception\DebugLogLevel.cs" />
+    <Compile Include="RxInterception\ErrorLogLevel.cs" />
+    <Compile Include="RxInterception\FatalLogLevel.cs" />
+    <Compile Include="RxInterception\ILogLevel.cs" />
+    <Compile Include="RxInterception\InfoLogLevel.cs" />
+    <Compile Include="RxInterception\WarnLogLevel.cs" />
     <Compile Include="TestableAppender.cs" />
   </ItemGroup>
   <ItemGroup>
