@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Rx", "Log4Rx\Log4Rx.csproj", "{B014DA63-39D5-4D3D-AF2A-D4BE329838FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Rx.Tests", "Log4Rx.Tests\Log4Rx.Tests.csproj", "{9F08B501-3C24-4B49-9F79-53ADAB32F809}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DF018BE0-91D9-4669-BAFA-CBD509C0BA8F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B014DA63-39D5-4D3D-AF2A-D4BE329838FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B014DA63-39D5-4D3D-AF2A-D4BE329838FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B014DA63-39D5-4D3D-AF2A-D4BE329838FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B014DA63-39D5-4D3D-AF2A-D4BE329838FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F08B501-3C24-4B49-9F79-53ADAB32F809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F08B501-3C24-4B49-9F79-53ADAB32F809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F08B501-3C24-4B49-9F79-53ADAB32F809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F08B501-3C24-4B49-9F79-53ADAB32F809}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
