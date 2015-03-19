@@ -4,7 +4,7 @@ using log4net.Core;
 
 namespace Log4Rx
 {
-	public static class Log4NetRxAdapter
+	public static class AppenderAttachableToObservable
 	{
 		public static IObservable<LoggingEvent> ToObservable(this IAppenderAttachable appenderAttachable)
 		{

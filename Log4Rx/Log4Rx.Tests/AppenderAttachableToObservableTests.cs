@@ -1,4 +1,5 @@
-﻿using System.Reactive;
+﻿using System;
+using System.Reactive;
 using Microsoft.Reactive.Testing;
 using NUnit.Framework;
 using log4net.Core;
@@ -7,17 +8,19 @@ using log4net.Util;
 namespace Log4Rx.Tests
 {
 	[TestFixture]
-	public class Log4NetRxAdapterTests
+	public class AppenderAttachableToObservableTests
 	{
 		private readonly IAppenderAttachable _appenderAttachable;
 		private readonly TestScheduler _scheduler;
+		private readonly IObservable<LoggingEvent> _observable;
 
 		private ITestableObserver<LoggingEvent> _observer;
 
-		public Log4NetRxAdapterTests()
+		public AppenderAttachableToObservableTests()
 		{
 			_appenderAttachable = new AppenderAttachedImpl();
 			_scheduler = new TestScheduler();
+			_observable = _appenderAttachable.ToObservable();
 		}
 
 		[SetUp]
@@ -31,8 +34,7 @@ namespace Log4Rx.Tests
 		public void Can_turn_appender_attachable_to_observable()
 		{
 			Assert.That(_appenderAttachable.Appenders.Count, Is.EqualTo(0));
-			var observable = _appenderAttachable.ToObservable();
-			using (observable.Subscribe(_observer))
+			using (_observable.Subscribe(_observer))
 			{
 				Assert.That(_appenderAttachable.Appenders.Count, Is.EqualTo(1));
 			}
@@ -42,24 +44,22 @@ namespace Log4Rx.Tests
 		[Test]
 		public void Attached_appender_delegates_append_to_observer_onnext()
 		{
-			var observable = _appenderAttachable.ToObservable();
-			var @event = new LoggingEvent(new LoggingEventData());
-			using (observable.Subscribe(_observer))
+			var loggingEvent = new LoggingEvent(new LoggingEventData());
+			using (_observable.Subscribe(_observer))
 			{
 				var appenders = _appenderAttachable.Appenders;
 				Assert.That(appenders.Count, Is.EqualTo(1));
 				var appender = appenders[0];
-				appender.DoAppend(@event);
+				appender.DoAppend(loggingEvent);
 			}
 			Assert.That(_observer.Messages.Count, Is.EqualTo(1));
-			Assert.That(_observer.Messages[0].Value.Value, Is.EqualTo(@event));
+			Assert.That(_observer.Messages[0].Value.Value, Is.EqualTo(loggingEvent));
 		}
 
 		[Test]
 		public void Attached_appender_delegates_close_to_observer_oncompleted()
 		{
-			var observable = _appenderAttachable.ToObservable();
-			using (observable.Subscribe(_observer))
+			using (_observable.Subscribe(_observer))
 			{
 				var appenders = _appenderAttachable.Appenders;
 				Assert.That(appenders.Count, Is.EqualTo(1));

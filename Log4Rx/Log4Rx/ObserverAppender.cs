@@ -4,7 +4,7 @@ using log4net.Core;
 
 namespace Log4Rx
 {
-	public class ObserverAppender : AppenderSkeleton
+	public class ObserverAppender: AppenderSkeleton
 	{
 		private readonly IObserver<LoggingEvent> _observer;
 

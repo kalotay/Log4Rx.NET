@@ -56,7 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Log4NetRxAdapter.cs" />
+    <Compile Include="AppenderAttachableToObservable.cs" />
+    <Compile Include="AppenderSubscription.cs" />
     <Compile Include="ObserverAppender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
